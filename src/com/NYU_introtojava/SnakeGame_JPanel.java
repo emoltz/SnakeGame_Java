@@ -24,6 +24,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
     //assets
     Image cherry;
+    private int numberOfCherries = -1;
     Image snakeBody;
     //TODO add a RIP image for when you die
 
@@ -47,7 +48,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         addKeyListener(new KeyListener());
 //        loadImages();
 
-        loadImagesRunnable s = new loadImagesRunnable(this);
+        LoadImagesRunnable s = new LoadImagesRunnable(this);
         Thread loadImagesThread = new Thread(s);
         System.out.println(loadImagesThread);
         loadImagesThread.start();
@@ -80,18 +81,30 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
             y[z] = sizeOfImages * (sizeOfImages/2);
         }
 //        drawNewCherry();
-        CherryChangerRunnable r = new CherryChangerRunnable();
+        CherryChangerRunnable r = new CherryChangerRunnable(this);
         new Thread(r).start();
         timer = new Timer(REFRESH_RATE, this);
         timer.start();
     }
 
-    private void loadImages(){
-        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
-        cherry = imageIcon1.getImage();
+//    private void loadImages(){
+//        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
+//        cherry = imageIcon1.getImage();
+//
+//        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
+//        snakeBody = imageIcon2.getImage();
+//    }
 
-        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
-        snakeBody = imageIcon2.getImage();
+    public int getNumberOfCherries(){
+        return numberOfCherries;
+    }
+    public void printNumberOfCherries(){
+        System.out.println("Number of Cherries: " + numberOfCherries);
+    }
+
+    public void increaseNumberOfCherries(){
+        numberOfCherries += 1;
+        printNumberOfCherries();
     }
 
     @Override
@@ -181,23 +194,10 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         if ((x[0] == cherry_x) && (y[0] == cherry_y)) {
             sizeOfSnake++;
 //            drawNewCherry();
-            CherryChangerRunnable r = new CherryChangerRunnable();
+            CherryChangerRunnable r = new CherryChangerRunnable(this);
             new Thread(r).start();
         }
     }
-
-////to unthread, uncomment the below:
-//    private void drawNewCherry(){
-//        //calculate random position for cherry
-//        int rand = sizeOfImages;
-//        int r = (int) (Math.random() * rand);
-//        cherry_x = ((r * sizeOfImages));
-//
-//        r = (int) (Math.random() * rand);
-//        cherry_y = ((r * sizeOfImages));
-//        System.out.println("Cherry Coordinates - x:" + cherry_x + " y:"+cherry_y);
-//    }
-
 
     private void gameOver(Graphics g){
         String msg = "You Died.";
@@ -253,10 +253,5 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
                 leftDirection = false;
             }
         }
-
-
     }
-
-
-
 }
