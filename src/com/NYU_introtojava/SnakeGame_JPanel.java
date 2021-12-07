@@ -130,7 +130,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         }
     }
 
-    private void move(){
+    protected void move(){
         for (int z = sizeOfSnake; z > 0; z--) {
             x[z] = x[(z - sizeOfImages/10)];
             y[z] = y[(z - sizeOfImages/10)];
@@ -153,7 +153,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         }
     }
 
-    private void checkCollision(){
+    protected void checkCollision(){
         //if it hits itself
         for (int z = sizeOfSnake; z > 0; z--) {
 
@@ -190,7 +190,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         }
     }
 
-    private void checkCherry(){
+    protected void checkCherry(){
         if ((x[0] == cherry_x) && (y[0] == cherry_y)) {
             sizeOfSnake++;
 //            drawNewCherry();
@@ -213,10 +213,15 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(inGame){
-            checkCherry();
-            checkCollision();
-            move();
+            ActionPerformedRunnable r = new ActionPerformedRunnable(this);
+            Thread actionThread = new Thread(r);
+            actionThread.start();
         }
+//        if(inGame){
+//            checkCherry();
+//            checkCollision();
+//            move();
+//        }
         repaint();
     }
 
