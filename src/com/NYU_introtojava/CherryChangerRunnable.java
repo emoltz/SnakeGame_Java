@@ -5,9 +5,6 @@ import static com.NYU_introtojava.SnakeGame_JPanel.*;
 public class CherryChangerRunnable implements Runnable {
 
     SnakeGame_JPanel snakeGame_jPanel = null;
-//    public CherryChangerRunnable(){
-//
-//    }
 
     public CherryChangerRunnable(SnakeGame_JPanel s){
         snakeGame_jPanel = s;

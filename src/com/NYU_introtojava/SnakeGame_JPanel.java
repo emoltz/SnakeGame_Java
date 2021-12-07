@@ -33,7 +33,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     private boolean rightDirection = true;
     private boolean upDirection = false;
     private boolean downDirection = false;
-    public static boolean inGame = true;
+    public boolean inGame;
 
     //timer
     private Timer timer;
@@ -44,15 +44,14 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     private static int cherry_y;
 
 
-    public SnakeGame_JPanel() throws InterruptedException {
+    public SnakeGame_JPanel() {
         addKeyListener(new KeyListener());
+        inGame = true;
 //        loadImages();
 
         LoadImagesRunnable s = new LoadImagesRunnable(this);
         Thread loadImagesThread = new Thread(s);
-        System.out.println(loadImagesThread);
         loadImagesThread.start();
-        loadImagesThread.join();
 
         setBackground(new Color(0,77,117));
         startGame();
@@ -87,13 +86,13 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         timer.start();
     }
 
-//    private void loadImages(){
-//        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
-//        cherry = imageIcon1.getImage();
-//
-//        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
-//        snakeBody = imageIcon2.getImage();
-//    }
+    private void loadImages(){
+        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
+        cherry = imageIcon1.getImage();
+
+        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
+        snakeBody = imageIcon2.getImage();
+    }
 
     public int getNumberOfCherries(){
         return numberOfCherries;
@@ -212,16 +211,16 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(inGame){
-            ActionPerformedRunnable r = new ActionPerformedRunnable(this);
-            Thread actionThread = new Thread(r);
-            actionThread.start();
-        }
 //        if(inGame){
-//            checkCherry();
-//            checkCollision();
-//            move();
+//            ActionPerformedRunnable r = new ActionPerformedRunnable(this);
+//            Thread actionThread = new Thread(r);
+//            actionThread.start();
 //        }
+        if(inGame){
+            checkCherry();
+            checkCollision();
+            move();
+        }
         repaint();
     }
 

@@ -6,10 +6,10 @@ import java.awt.event.KeyEvent;
 public class Window_JFrame extends JFrame {
     private final static double VERSION = 2.0;
 
-    public static int WIN_WIDTH = 500;
-    public static int WIN_HEIGHT = 500;
+    public final static int WIN_WIDTH = 500;
+    public final static int WIN_HEIGHT = 500;
 
-    public Window_JFrame() throws InterruptedException {
+    public Window_JFrame() {
         createMenus();
         setTitle("~~~SNAKE~~~ Version:" + VERSION);
         setSize(WIN_WIDTH, WIN_HEIGHT);
@@ -60,13 +60,10 @@ public class Window_JFrame extends JFrame {
         BackgroundJMenu menu = new BackgroundJMenu("File");
         JMenuItem newGame = new JMenuItem("New Game");
         newGame.addActionListener((e)->{
-            try {
-                Main.run();
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                System.out.println("ERROR--> adding action listener failed");
-            }
+            Main.run();
             dispose();
+//            Main s = new Main();
+//            s.run();
         });
         KeyStroke keyStrokeNewGame = KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK);
         newGame.setAccelerator(keyStrokeNewGame);
