@@ -9,7 +9,7 @@ public class Window_JFrame extends JFrame {
     public static int WIN_WIDTH = 500;
     public static int WIN_HEIGHT = 500;
 
-    public Window_JFrame(){
+    public Window_JFrame() throws InterruptedException {
         createMenus();
         setTitle("~~~SNAKE~~~ Version:" + VERSION);
         setSize(WIN_WIDTH, WIN_HEIGHT);
@@ -60,7 +60,12 @@ public class Window_JFrame extends JFrame {
         BackgroundJMenu menu = new BackgroundJMenu("File");
         JMenuItem newGame = new JMenuItem("New Game");
         newGame.addActionListener((e)->{
-            Main.run();
+            try {
+                Main.run();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+                System.out.println("ERROR--> adding action listener failed");
+            }
             dispose();
         });
         KeyStroke keyStrokeNewGame = KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK);

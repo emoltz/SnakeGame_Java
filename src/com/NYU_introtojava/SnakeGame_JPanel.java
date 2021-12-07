@@ -32,7 +32,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     private boolean rightDirection = true;
     private boolean upDirection = false;
     private boolean downDirection = false;
-    private boolean inGame = true;
+    public static boolean inGame = true;
 
     //timer
     private Timer timer;
@@ -43,10 +43,16 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     private static int cherry_y;
 
 
-    public SnakeGame_JPanel(){
+    public SnakeGame_JPanel() throws InterruptedException {
         addKeyListener(new KeyListener());
+//        loadImages();
 
-        loadImages();
+        loadImagesRunnable s = new loadImagesRunnable(this);
+        Thread loadImagesThread = new Thread(s);
+        System.out.println(loadImagesThread);
+        loadImagesThread.start();
+        loadImagesThread.join();
+
         setBackground(new Color(0,77,117));
         startGame();
         setFocusable(true);
