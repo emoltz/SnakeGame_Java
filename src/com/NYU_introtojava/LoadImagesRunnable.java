@@ -1,6 +1,7 @@
 package com.NYU_introtojava;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LoadImagesRunnable implements Runnable {
 
@@ -19,6 +20,9 @@ public class LoadImagesRunnable implements Runnable {
 
         ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
         snakeGame_jPanel.snakeBody = imageIcon2.getImage();
+
+        ImageIcon imageIcon3 = new ImageIcon("Assets/RIP.png");
+        snakeGame_jPanel.RIP = imageIcon3.getImage();
     }
 
 

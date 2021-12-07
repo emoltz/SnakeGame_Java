@@ -26,7 +26,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     Image cherry;
     private int numberOfCherries = -1;
     Image snakeBody;
-    //TODO add a RIP image for when you die
+    Image RIP;
 
     //booleans
     private boolean leftDirection = false;
@@ -207,6 +207,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         g.setColor(Color.white);
         g.setFont(myFont);
         g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 2);
+        //TODO Draw RIP image
     }
 
     @Override
