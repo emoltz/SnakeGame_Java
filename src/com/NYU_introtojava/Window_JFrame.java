@@ -18,17 +18,16 @@ public class Window_JFrame extends JFrame {
         //TODO here would be the menu for levels
 
 //        difficultyMenu();
-
-
         add(new SnakeGame_JPanel());
         setDefaultBehavior();
 
     }
 
-    public void changeDimensions(int width, int height){
-        WIN_HEIGHT = height;
-        WIN_WIDTH = width;
-    }
+    ////This is for changing the dimensions of the screen (to be added)
+//    public void changeDimensions(int width, int height){
+//        WIN_HEIGHT = height;
+//        WIN_WIDTH = width;
+//    }
 
     public void difficultyMenu(){
         //TODO add this to the menus or make this a popup menu?

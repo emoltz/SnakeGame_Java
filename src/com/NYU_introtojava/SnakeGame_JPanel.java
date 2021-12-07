@@ -25,6 +25,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     //assets
     Image cherry;
     Image snakeBody;
+    //TODO add a RIP image for when you die
 
     //booleans
     private boolean leftDirection = false;
@@ -143,7 +144,7 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
             }
         }
 
-        //TODO wrap snake -- don't stop the game when it hits the end
+        //TODO wrap snake -- don't stop the game when it hits the end?
         //hits bottom
         if (y[0] >= Window_JFrame.getWinHeight() - sizeOfImages * 5) {
             inGame = false;
