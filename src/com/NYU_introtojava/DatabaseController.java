@@ -7,10 +7,11 @@ public class DatabaseController extends JDBC {
 
     public static void connectToDatabase(){
         Connection connection = null;
-        String URL = "";
+        String URL = "jdbc:sqlite:identifier.sqlite";
 
         try {
             connection = DriverManager.getConnection(URL);
+            System.out.println("Database connection successful");
         } catch (SQLException e) {
             System.out.println("Database Connection Failed");
         }
