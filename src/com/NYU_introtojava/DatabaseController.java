@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class DatabaseController extends JDBC {
 
-    public void connectToDatabase(){
+    public static void connectToDatabase(){
         Connection connection = null;
         String URL = "";
 
