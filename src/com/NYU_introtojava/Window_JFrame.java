@@ -9,7 +9,7 @@ public class Window_JFrame extends JFrame {
     public final static int WIN_WIDTH = 500;
     public final static int WIN_HEIGHT = 500;
 
-    SnakeGame_JPanel snakeGame_jPanel = null;
+    SnakeGame_JPanel snakeGame_jPanel;
     DatabaseController database = null;
 
     public Window_JFrame() {
@@ -74,10 +74,9 @@ public class Window_JFrame extends JFrame {
 
 
         save.addActionListener((e)->{
-            //TODO add actionListener that saves it to a database
-            String name = JOptionPane.showInputDialog(this,"Enter Your Name");
-            int score = snakeGame_jPanel.getNumberOfCherries();
-            database.addNewRecord(name,score);
+            Runnable r = new SaveGame(snakeGame_jPanel, database, this);
+            Thread thread = new Thread(r);
+            thread.start();
 
         });
 
