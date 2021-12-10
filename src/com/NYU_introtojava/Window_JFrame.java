@@ -18,12 +18,10 @@ public class Window_JFrame extends JFrame {
         setSize(WIN_WIDTH, WIN_HEIGHT);
         setResizable(false);
         snakeGame_jPanel = new SnakeGame_JPanel();
-
         add(snakeGame_jPanel);
         setDefaultBehavior();
 
     }
-
 
     public void difficultyMenu(){
 

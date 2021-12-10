@@ -59,15 +59,15 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
     }
 
-    public static int getCherry_x(){
+    public int getCherry_x(){
         return cherry_x;
     }
 
-    public static int getCherry_y(){
+    public int getCherry_y(){
         return cherry_y;
     }
 
-    public static void changeCherry_x(int n){
+    public void changeCherry_x(int n){
         cherry_x = n;
     }
     public static void changeCherry_y(int n){
@@ -86,13 +86,13 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         timer.start();
     }
 
-    private void loadImages(){
-        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
-        cherry = imageIcon1.getImage();
-
-        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
-        snakeBody = imageIcon2.getImage();
-    }
+//    private void loadImages(){
+//        ImageIcon imageIcon1 = new ImageIcon("Assets/cherry.png");
+//        cherry = imageIcon1.getImage();
+//
+//        ImageIcon imageIcon2 = new ImageIcon("Assets/snake_body.png");
+//        snakeBody = imageIcon2.getImage();
+//    }
 
     public int getNumberOfCherries(){
         return numberOfCherries;
