@@ -9,28 +9,24 @@ public class Window_JFrame extends JFrame {
     public final static int WIN_WIDTH = 500;
     public final static int WIN_HEIGHT = 500;
 
+    SnakeGame_JPanel snakeGame_jPanel = null;
+    DatabaseController database = null;
+
     public Window_JFrame() {
         createMenus();
         setTitle("~~~SNAKE~~~ Version:" + VERSION);
         setSize(WIN_WIDTH, WIN_HEIGHT);
         setResizable(false);
+        snakeGame_jPanel = new SnakeGame_JPanel();
 
-        //TODO here would be the menu for levels
-
-//        difficultyMenu();
-        add(new SnakeGame_JPanel());
+        add(snakeGame_jPanel);
         setDefaultBehavior();
 
     }
 
-    ////This is for changing the dimensions of the screen (to be added)
-//    public void changeDimensions(int width, int height){
-//        WIN_HEIGHT = height;
-//        WIN_WIDTH = width;
-//    }
 
     public void difficultyMenu(){
-        //TODO add this to the menus or make this a popup menu?
+
         JLabel select = new JLabel("Select Difficulty");
 
         add(select);
@@ -49,7 +45,14 @@ public class Window_JFrame extends JFrame {
         setVisible(true);
     }
 
+    public void initDatabaseConnection(){
+        database = new DatabaseController();
+        database.connectToDatabase();
+    }
+
     public void createMenus(){
+        initDatabaseConnection();
+
         BackgroundMenuBar menuBar = new BackgroundMenuBar();
         setJMenuBar(menuBar);
         menuBar.add(createFileMenu());
@@ -62,16 +65,21 @@ public class Window_JFrame extends JFrame {
         newGame.addActionListener((e)->{
             Main.run();
             dispose();
-//            Main s = new Main();
-//            s.run();
         });
         KeyStroke keyStrokeNewGame = KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK);
         newGame.setAccelerator(keyStrokeNewGame);
         menu.add(newGame);
 
         JMenuItem save = new JMenuItem("Save Score");
-        //TODO add actionListener that saves it to a database
 
+
+        save.addActionListener((e)->{
+            //TODO add actionListener that saves it to a database
+            String name = JOptionPane.showInputDialog(this,"Enter Your Name");
+            int score = snakeGame_jPanel.getNumberOfCherries();
+            database.addNewRecord(name,score);
+
+        });
 
         KeyStroke keyStrokeSave = KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK);
         save.setAccelerator(keyStrokeSave);

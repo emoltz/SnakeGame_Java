@@ -5,7 +5,6 @@ import javax.xml.crypto.Data;
 public class Main {
 
     public static void run() {
-        DatabaseController.connectToDatabase();
         Window_JFrame b = new Window_JFrame();
     }
 
