@@ -1,12 +1,11 @@
 package com.NYU_introtojava;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class LoadImagesRunnable implements Runnable {
 
 
-    SnakeGame_JPanel snakeGame_jPanel = null;
+    SnakeGame_JPanel snakeGame_jPanel;
 
     public LoadImagesRunnable(SnakeGame_JPanel panel){
         snakeGame_jPanel = panel;

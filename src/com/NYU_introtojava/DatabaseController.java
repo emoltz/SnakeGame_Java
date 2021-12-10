@@ -3,8 +3,6 @@ package com.NYU_introtojava;
 import org.sqlite.JDBC;
 
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DatabaseController extends JDBC {
     Connection connection = null;
@@ -34,7 +32,6 @@ public class DatabaseController extends JDBC {
 
         try {
             assert statement != null;
-//            statement.executeUpdate(query);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, highScore);
