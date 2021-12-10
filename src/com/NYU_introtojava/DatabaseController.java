@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class DatabaseController extends JDBC {
     Connection connection = null;
-    ResultSet resultSet = null;
 
     public void connectToDatabase(){
         String URL = "jdbc:sqlite:identifier.sqlite";
