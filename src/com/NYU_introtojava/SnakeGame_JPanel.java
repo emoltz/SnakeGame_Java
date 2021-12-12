@@ -205,8 +205,9 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
         g.setColor(Color.white);
         g.setFont(myFont);
-        g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 2);
-        //TODO Draw RIP image
+        g.drawImage(RIP, 150,250,200, 200, this);
+        g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 3);
+
     }
 
     @Override
