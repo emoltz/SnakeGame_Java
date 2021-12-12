@@ -1,10 +1,13 @@
 package com.NYU_introtojava;
 
+import com.sun.security.auth.module.JndiLoginModule;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Window_JFrame extends JFrame {
-    private final static double VERSION = 2.0;
+    private final static double VERSION = 3.0;
 
     public final static int WIN_WIDTH = 500;
     public final static int WIN_HEIGHT = 500;
@@ -20,14 +23,6 @@ public class Window_JFrame extends JFrame {
         snakeGame_jPanel = new SnakeGame_JPanel();
         add(snakeGame_jPanel);
         setDefaultBehavior();
-
-    }
-
-    public void difficultyMenu(){
-
-        JLabel select = new JLabel("Select Difficulty");
-
-        add(select);
     }
 
     public static int getWinWidth(){

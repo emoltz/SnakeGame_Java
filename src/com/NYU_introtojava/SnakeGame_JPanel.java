@@ -118,8 +118,8 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
             g.drawImage(cherry, cherry_x, cherry_y, sizeOfImages,sizeOfImages,this);
 
-            for (int z = 0; z < sizeOfSnake; z++) {
-                g.drawImage(snakeBody, x[z], y[z],sizeOfImages,sizeOfImages, this);
+            for (int i = 0; i < sizeOfSnake; i++) {
+                g.drawImage(snakeBody, x[i], y[i],sizeOfImages,sizeOfImages, this);
             }
 
             Toolkit.getDefaultToolkit().sync();
@@ -205,8 +205,9 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
         g.setColor(Color.white);
         g.setFont(myFont);
-        g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 2);
-        //TODO Draw RIP image
+        g.drawImage(RIP, 150,250,200, 200, this);
+        g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 3);
+
     }
 
     @Override
