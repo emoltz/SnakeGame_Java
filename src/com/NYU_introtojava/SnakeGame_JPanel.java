@@ -9,6 +9,8 @@ import java.awt.event.KeyEvent;
 
 public class SnakeGame_JPanel extends JPanel implements ActionListener {
 
+    Window_JFrame currentWindow;
+
     public static final int sizeOfImages = 15;//in pixels
 
     //refresh rate
@@ -43,7 +45,10 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
     private static int cherry_x;
     private static int cherry_y;
 
-
+    public SnakeGame_JPanel(Window_JFrame window){
+        this();
+        currentWindow = window;
+    }
     public SnakeGame_JPanel() {
         addKeyListener(new KeyListener());
         inGame = true;
@@ -207,7 +212,6 @@ public class SnakeGame_JPanel extends JPanel implements ActionListener {
         g.setFont(myFont);
         g.drawImage(RIP, 150,250,200, 200, this);
         g.drawString(msg, (Window_JFrame.getWinWidth() - fontMetrics.stringWidth(msg)) / 2, Window_JFrame.getWinHeight() / 3);
-
     }
 
     @Override

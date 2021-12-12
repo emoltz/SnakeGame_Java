@@ -20,7 +20,7 @@ public class Window_JFrame extends JFrame {
         setTitle("~~~SNAKE~~~ Version:" + VERSION);
         setSize(WIN_WIDTH, WIN_HEIGHT);
         setResizable(false);
-        snakeGame_jPanel = new SnakeGame_JPanel();
+        snakeGame_jPanel = new SnakeGame_JPanel(this);
         add(snakeGame_jPanel);
         setDefaultBehavior();
     }
