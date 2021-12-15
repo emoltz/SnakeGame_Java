@@ -1,9 +1,6 @@
 package com.NYU_introtojava;
 
-import com.sun.security.auth.module.JndiLoginModule;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Window_JFrame extends JFrame {
