@@ -1,4 +1,4 @@
-# Snake Game -- Intro to Java Fall 2021
+# Snake Game -- Intro to Java Fall 2021 -- 3.1
 Snake Game made in Swing UI for NYU Intro to Java class final project
 
 ## How to Set Up
