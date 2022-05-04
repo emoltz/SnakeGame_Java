@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class Window_JFrame extends JFrame {
-    private final static double VERSION = 3.0;
+    private final static double VERSION = 3.1;
 
     public final static int WIN_WIDTH = 500;
     public final static int WIN_HEIGHT = 500;

@@ -27,8 +27,6 @@ public class CherryChangerRunnable implements Runnable {
         System.out.println("Cherry Coordinates - x:" + snakeGame_jPanel.getCherry_x() + " y:" + snakeGame_jPanel.getCherry_y());
 
     }
-
-    //count cherries
     public void incrementCherries(){
         snakeGame_jPanel.increaseNumberOfCherries();
     }
